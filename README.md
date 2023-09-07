@@ -11,12 +11,5 @@ Run this command using cmd/terminal. You must already have composer installed. I
 composer install
 ```
 
-### Step-3: Download ChromeDriver
-Download ChromeDriver from the below link. You will get a .zip file. Extract it somewhere in a folder on your computer.
-link: https://chromedriver.chromium.org/downloads
-
-### Step-4: Use ChromeDriver in Code
-Enter the path of chromedriver.exe file in application/models/Plugin_data_scraper_model.php file.
-
-### Step-5: Start
+### Step-3: Start
 Open the root index.php file in browser using server. You can install a free local server using XAMPP.

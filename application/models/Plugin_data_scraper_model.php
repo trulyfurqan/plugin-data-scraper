@@ -15,8 +15,14 @@ class Plugin_data_scraper_model extends CI_Model
 	{
 		parent::__construct();
 
+		// Chromium and ChromeDriver we are using
+		// link: https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win/1193513/
+		// You can download the latest version for different OS from here.
+		// link: https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html
+
 		// Enter your chromedriver.exe path here
-		putenv('WEBDRIVER_CHROME_DRIVER=E:\softwares\installed\chromedriver_win32\chromedriver.exe');
+		$chromedriver_path = FCPATH . 'bin\chromedriver_win32\chromedriver.exe';
+		putenv("WEBDRIVER_CHROME_DRIVER={$chromedriver_path}");
     }
 
 	public function scrape_vscode_plugin_data($marketplace_url)
@@ -28,7 +34,11 @@ class Plugin_data_scraper_model extends CI_Model
 		{
 			// Create an instance of ChromeOptions:
 			$chromeOptions = new ChromeOptions();
-			
+
+			// Chromium path
+			$chromium_path = FCPATH . 'bin\chrome-win\chrome.exe';
+			$chromeOptions->setBinary($chromium_path);
+
 			// Configure $chromeOptions, see examples bellow:
 			$chromeOptions->addArguments(['--headless']);
 			
@@ -132,6 +142,10 @@ class Plugin_data_scraper_model extends CI_Model
 		{
 			// Create an instance of ChromeOptions:
 			$chromeOptions = new ChromeOptions();
+
+			// Chromium path
+			$chromium_path = FCPATH . 'bin\chrome-win\chrome.exe';
+			$chromeOptions->setBinary($chromium_path);
 			
 			// Configure $chromeOptions, see examples bellow:
 			$chromeOptions->addArguments(['--headless']);
@@ -224,6 +238,10 @@ class Plugin_data_scraper_model extends CI_Model
 		{
 			// Create an instance of ChromeOptions:
 			$chromeOptions = new ChromeOptions();
+
+			// Chromium path
+			$chromium_path = FCPATH . 'bin\chrome-win\chrome.exe';
+			$chromeOptions->setBinary($chromium_path);
 			
 			// Configure $chromeOptions, see examples bellow:
 			$chromeOptions->addArguments(['--headless']);
